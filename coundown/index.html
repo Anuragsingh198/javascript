@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+</head>
+<style>
+        body{
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            background-color: gray;
+            justify-content: center;
+            align-items: center;
+        }
+        #coundown{
+            height: 10vh;
+            font-size: 40px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: blue;
+        }
+</style>
+<body>
+    <div id="coundown">
+    </div>
+    <div id="label"> till 2025</div>
+</body>
+<script>
+    const  target =  new Date('2025-01-01T00:00:00');
+
+     function  coundown(){
+        const   currtime = new Date();
+        let  diff =   target - currtime;
+        const  days =   Math.floor(diff /(1000 * 60*60*24));
+            diff = diff %(1000 * 60*60*24)
+        const  hours = Math.floor(diff /(1000* 60 *60));
+         diff =  diff%(1000 * 60 * 60)
+         const  min=    Math.floor(diff /(1000*60));
+         diff =  diff %(1000* 60);
+         const sec =   Math.floor(diff /1000);
+
+         const   count = document.getElementById('coundown');
+
+         count.innerHTML = `${days}d ${hours}h ${min}m ${sec}s`
+
+         
+        }
+        setInterval(coundown , 1000);
+</script>
+</html>
