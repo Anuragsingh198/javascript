@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <style>
+        body {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            box-sizing: border-box;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .heading {
+            margin-bottom: 5px;
+        }
+        #container {
+            width: 50%;
+            height: 50%;
+            border: 1px solid #ccc;
+            padding: 10px 20px;
+            display: flex;
+            flex-direction: column;
+            border-radius: 5px;
+            box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+        }
+        input, select, button {
+            width: 100%;
+            margin-top: 10px;
+            height: 3vh;
+        }
+        button {
+            background-color: green;
+            color: white;
+            cursor: pointer;
+        }
+        #ExpenseSummery {
+            margin-top: 20px;
+        }
+        #tablecontaint {
+            display: flex;
+            flex-wrap: wrap;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="heading">Expense Tracker</div>
+        <form id="description">
+            <input type="text" id="ExpenseDiscritpion" placeholder="Expense Description" required>
+            <select id="category" required>
+                <option value="">Select Category</option>
+                <option value="Transport">Transport</option>
+                <option value="Food">Food</option>
+                <option value="Electricity">Electricity</option>
+                <option value="Rent">Rent</option>
+            </select>
+            <input id="amount" type="number" placeholder="Amount" required>
+            <button id="addexpense" type="submit">Add Expense</button>
+        </form>
+        <div id="ExpenseSummery">
+            <div class="heading">Expense Summary</div>
+            <div id="tablecontaint">
+                <table id="tcontaint">
+                    <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th>Category</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('description').addEventListener('submit', save);
+
+        function save(e) {
+            e.preventDefault();
+            const expd = document.getElementById('ExpenseDiscritpion').value;
+            const cate = document.getElementById('category').value;
+            const amount = document.getElementById('amount').value;
+
+            const tbody = document.querySelector('#tcontaint tbody');
+            const row = document.createElement('tr');
+
+            row.innerHTML = `<td>${expd}</td><td>${cate}</td><td>${amount}</td>`;
+            tbody.appendChild(row);
+
+            document.getElementById('ExpenseDiscritpion').value = '';
+            document.getElementById('category').value = '';
+            document.getElementById('amount').value = '';
+        }
+    </script>
+</body>
+</html>
