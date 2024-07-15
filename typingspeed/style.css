@@ -1,0 +1,93 @@
+*{
+    box-sizing: border-box;
+    padding: 0px 0px;
+    margin: 0px 0px;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+input {
+    width: 100%;
+    border: none;  
+    height: 30px;
+    border-radius: 10px;
+    outline: none; 
+    font-size:20px;
+}
+
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 166, 0);
+}
+.wrapper{
+    position: relative;
+    top: 100px;
+    padding: 20px 10px ;
+    width: 50%;
+    height: 40%;
+    background-color: #bfbfbf;
+    border-radius: 10px;
+}
+
+.content-box{
+
+    display: flex;
+    flex-direction: column;
+    padding: 10px 10px ;
+}
+.typing-test{
+    /* border-top: 1px solid black ; */
+    padding-bottom: 5px;
+}
+
+.content{
+    display: flex;
+    justify-content: space-between;
+     align-items: center;
+     border-top: 1px solid grey;
+    padding: 10px 10px;
+}
+.result-details{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+}
+
+.time{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.mistakes{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.wpm{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+button{
+    background-color: blue;
+    color: white;
+    border-radius: 10px;
+    width: 15%;
+    margin-left: 10px;
+    padding: 3px 3px;
+}
+
+
+.correct{
+    color:green;
+}
+.wrong{
+    color: red;
+}
+
+
+
+
